@@ -24,15 +24,21 @@ namespace MyGame
                 SwinGame.ClearScreen(Color.White);
                 SwinGame.DrawFramerate(0,0);
 
+                if (Input.KeyDown(KeyCode.SpaceKey))
+                {
+                    Random rand = new Random();
+                    if (myShape.IsAt(Input.MousePosition()))
+                        myShape.Colour = Color.FromArgb(rand.Next(256));
+                }
+
                 //draw myShape to the screen
-                myShape.Colour(Color.Green);
+                myShape.Colour = Color.Green;
                 myShape.Draw();
 
                 if (SwinGame.MouseClicked(MouseButton.LeftButton))
                 {
-                    Point2D mousepos = Input.MousePosition();
-                    myShape.X(mousepos.X);
-                    myShape.Y(mousepos.Y);
+                    myShape.X = Input.MousePosition().X;
+                    myShape.Y = Input.MousePosition().Y;
                 }
 
                 //Draw onto the screen
