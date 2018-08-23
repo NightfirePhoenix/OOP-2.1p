@@ -24,15 +24,15 @@ namespace MyGame
                 SwinGame.ClearScreen(Color.White);
                 SwinGame.DrawFramerate(0,0);
 
-                if (Input.KeyDown(KeyCode.SpaceKey))
+                if (Input.KeyTyped(KeyCode.SpaceKey))
                 {
                     Random rand = new Random();
                     if (myShape.IsAt(Input.MousePosition()))
-                        myShape.Colour = Color.FromArgb(rand.Next(256));
+                        myShape.Colour = SwinGame.RandomRGBColor(255);
+
                 }
 
                 //draw myShape to the screen
-                myShape.Colour = Color.Green;
                 myShape.Draw();
 
                 if (SwinGame.MouseClicked(MouseButton.LeftButton))
